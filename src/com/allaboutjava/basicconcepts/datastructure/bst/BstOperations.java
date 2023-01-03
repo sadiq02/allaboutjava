@@ -58,4 +58,47 @@ public class BstOperations {
     }
   }
 
+  public void removeNode(int value) {
+    root = removeNode(root, value);
+  }
+
+  private BstNode removeNode(BstNode root, int value) {
+    // best case scenario if bst is empty
+    if (root == null) {
+      return null;
+    }
+    // check the key value and decide which subtree to check further
+    if (value < root.value) {
+      root.left = removeNode(root.left, value);
+    } else if (value > root.value) {
+      root.right = removeNode(root.right, value);
+    } else { //if its the root node
+      //check for 3 conditions
+      //1. if there is no left child for node-to-be-deleted just return root.right
+      if (root.left == null) {
+        return root.right;
+      }
+      //2. if there is no right child for node-to-be-deleted just return root.left
+      if (root.right == null) {
+        return root.left;
+      }
+      //3. in case the node-to-be-deleted have both left child and right child, need to find the
+      // minimum value from right subtree which can replace root element data
+      root.value = findMinimunValueNodeFromRightSubtree(root.right);
+
+      // delete the node which was replaced as root in the previous step
+      root.right = removeNode(root.right, root.value);
+    }
+    return root;
+  }
+
+  private int findMinimunValueNodeFromRightSubtree(BstNode node) {
+    int minimum = node.value;
+    while (node.left != null) {
+        minimum = node.left.value; //because in BST left node will have smaller values
+      node = node.left;
+    }
+    return minimum;
+  }
+
 }

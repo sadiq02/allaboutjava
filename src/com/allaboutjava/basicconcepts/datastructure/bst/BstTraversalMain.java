@@ -11,6 +11,7 @@ public class BstTraversalMain {
     bstNodeTraversal.insertNode(7);
     bstNodeTraversal.insertNode(13);
     bstNodeTraversal.insertNode(17);
+    bstNodeTraversal.removeNode(10);
     System.out.println("\n****Inorder Display****");
     bstNodeTraversal.inOrderDisplay();
     System.out.println("\n****PreOrder Display****");
