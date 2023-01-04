@@ -6,12 +6,12 @@ public class PriorityQueueExample {
 
   public static void main(String[] args) {
     PriorityQueue priorityQueue = new PriorityQueue();
-    priorityQueue.add("Sadiq");
-    priorityQueue.add("Sadiq");
-    priorityQueue.add("Sarine");
-    priorityQueue.add("Danish");
-    priorityQueue.add("Amara");
-    priorityQueue.remove("Sadiq"); //removes only one occurence and NOT all
+    priorityQueue.add("Raj");
+    priorityQueue.add("Raj");
+    priorityQueue.add("Amit");
+    priorityQueue.add("Rahul");
+    priorityQueue.add("Sham");
+    priorityQueue.remove("Raj"); //removes only one occurence and NOT all
     System.out.println(priorityQueue);
   }
 }

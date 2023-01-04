@@ -1,4 +1,4 @@
-package com.allaboutjava.basicconcepts.datastructure.list;
+package com.allaboutjava.basicconcepts.datastructure.list.custom;
 
 public class DoublyLinkedListMain {
 
