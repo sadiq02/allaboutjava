@@ -18,5 +18,6 @@ public class BstTraversalMain {
     bstNodeTraversal.preOrderDisplay();
     System.out.println("\n****Postorder Display****");
     bstNodeTraversal.postOrderDisplay();
+    System.out.println("Root of the BST : " + bstNodeTraversal.root.value);
   }
 }
