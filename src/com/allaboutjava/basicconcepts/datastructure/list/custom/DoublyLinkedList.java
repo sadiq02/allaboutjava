@@ -10,6 +10,9 @@ public class DoublyLinkedList {
     this.head = null;
   }
 
+  public DoublyLinkedListNode getHead(){
+    return head;
+  }
   public boolean isEmpty() {
     return head == null;
   }
