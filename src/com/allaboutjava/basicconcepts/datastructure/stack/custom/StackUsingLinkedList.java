@@ -1,4 +1,4 @@
-package com.allaboutjava.basicconcepts.datastructure.stack;
+package com.allaboutjava.basicconcepts.datastructure.stack.custom;
 
 import com.allaboutjava.basicconcepts.datastructure.list.custom.SingleLinkedListNode;
 
