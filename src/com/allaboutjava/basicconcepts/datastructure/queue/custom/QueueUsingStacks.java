@@ -60,5 +60,8 @@ public class QueueUsingStacks {
     System.out.println("Queue size : " + queue.getSize());
     queue.dequeue();
     queue.display();
+    queue.enqueue(5);
+    queue.dequeue();
+    queue.display();
   }
 }
