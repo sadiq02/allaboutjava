@@ -1,5 +1,8 @@
 package com.allaboutjava.basicconcepts.datastructure.bst.custom;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BstOperations {
 
   BstNode root;
@@ -59,6 +62,22 @@ public class BstOperations {
       postOrder(root.left);
       postOrder(root.right);
       System.out.println(root.value);
+    }
+  }
+
+  public void levelOrderTraversal(BstNode root) {
+    Queue<BstNode> queue = new LinkedList<>();
+    queue.add(root);
+
+    while (!queue.isEmpty()) {
+      BstNode temp = queue.poll();
+      System.out.println(temp.value);
+      if (temp.getLeft() != null) {
+        queue.add(temp.getLeft());
+      }
+      if (temp.getRight() != null) {
+        queue.add(temp.getRight());
+      }
     }
   }
 
