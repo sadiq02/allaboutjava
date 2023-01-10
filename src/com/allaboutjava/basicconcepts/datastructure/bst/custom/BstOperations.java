@@ -1,4 +1,4 @@
-package com.allaboutjava.basicconcepts.datastructure.bst;
+package com.allaboutjava.basicconcepts.datastructure.bst.custom;
 
 public class BstOperations {
 
@@ -6,6 +6,10 @@ public class BstOperations {
 
   public void insertNode(int value) {
     root = addNode(root, value);
+  }
+
+  public BstNode getRoot() {
+    return root;
   }
 
   private BstNode addNode(BstNode root, int value) {
@@ -95,7 +99,7 @@ public class BstOperations {
   private int findMinimunValueNodeFromRightSubtree(BstNode node) {
     int minimum = node.value;
     while (node.left != null) {
-        minimum = node.left.value; //because in BST left node will have smaller values
+      minimum = node.left.value; //because in BST left node will have smaller values
       node = node.left;
     }
     return minimum;
