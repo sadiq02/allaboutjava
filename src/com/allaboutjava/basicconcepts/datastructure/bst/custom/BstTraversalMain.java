@@ -1,4 +1,4 @@
-package com.allaboutjava.basicconcepts.datastructure.bst;
+package com.allaboutjava.basicconcepts.datastructure.bst.custom;
 
 public class BstTraversalMain {
 
