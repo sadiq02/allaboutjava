@@ -2,13 +2,17 @@ package com.allaboutjava.basicconcepts.datastructure.queue.custom;
 
 import java.util.Stack;
 
-public class QueueUsingStacks {
+/**
+ * This approach uses stack one for enqueue and stack 2 for dequeue but the performance remains same.
+ * Here denqeue operation is costly.
+ */
+public class QueueUsingStacksApproach2 {
 
   int size;
   Stack<Object> s1;
   Stack<Object> s2;
 
-  QueueUsingStacks() {
+  QueueUsingStacksApproach2() {
     this.size = 0;
     s1 = new Stack<Object>();
     s2 = new Stack<Object>();
@@ -19,25 +23,19 @@ public class QueueUsingStacks {
   }
 
   public void enqueue(Object item) {
-    while (!s1.empty()) {
-      s2.push(s1.pop());
-    }
     s1.push(item);
     size++;
-    while (!s2.isEmpty()) {
-      s1.push(s2.pop());
-    }
   }
 
   public void dequeue() {
-    if (s1.isEmpty()) {
-      System.out.println("Nothing to pop!");
-      System.exit(0);
+    while (!s1.isEmpty()) {
+      s2.push(s1.pop());
     }
-    System.out.println("Topmost element currently - "+s1.peek());
-    System.out.println("Popped : " + s1.pop());
-
+    System.out.println("Item being popped - " + s2.pop());
     size--;
+    while (!s2.isEmpty()) {
+      s1.push(s2.pop());
+    }
   }
 
   public int getSize() {
@@ -51,13 +49,16 @@ public class QueueUsingStacks {
   }
 
   public static void main(String[] args) {
-    QueueUsingStacks queue = new QueueUsingStacks();
+    QueueUsingStacksApproach2 queue = new QueueUsingStacksApproach2();
     System.out.println("IsEmpty? : " + queue.isEmpty());
     queue.enqueue(1);
     queue.enqueue(2);
     queue.enqueue(3);
     queue.enqueue(4);
     System.out.println("Queue size : " + queue.getSize());
+    queue.dequeue();
+    queue.display();
+    queue.enqueue(5);
     queue.dequeue();
     queue.display();
   }
