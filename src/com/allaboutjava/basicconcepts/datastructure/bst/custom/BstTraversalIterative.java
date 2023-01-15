@@ -72,6 +72,36 @@ public class BstTraversalIterative {
     }
   }
 
+  public void postOrderDisplayUsingStack(){
+    postOrderTraversal(root);
+  }
+
+  private void postOrderTraversal(BstNode node) {
+    if (node == null) {
+      return;
+    }
+
+    Stack<BstNode> s1 = new Stack<>();
+    Stack<BstNode> s2 = new Stack<>();
+    s1.push(node);
+    while (!s1.isEmpty()) {
+      BstNode temp = s1.pop();
+      s2.push(temp);
+
+      if (temp.getLeft() != null) {
+        s1.push(temp.getLeft());
+      }
+      if (temp.getRight() != null) {
+        s1.push(temp.getRight());
+      }
+
+    }
+    while (!s2.isEmpty()) {
+      System.out.println(s2.pop().value);
+    }
+
+  }
+
   public static void main(String[] args) {
     BstTraversalIterative bst = new BstTraversalIterative();
     bst.addNode(10);
@@ -85,5 +115,7 @@ public class BstTraversalIterative {
     bst.inorderDisplayUingStack();
     System.out.println("\nPreorder Traversal");
     bst.preOrderTraversalUsingStack();
+    System.out.println("\nPostorder Traversal");
+    bst.postOrderDisplayUsingStack();
   }
 }
