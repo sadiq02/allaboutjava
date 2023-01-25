@@ -3,12 +3,12 @@ package com.allaboutjava.basicconcepts.datastructure.graph;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Graph1 {
+public class GraphForDFS {
 
   private int numberOfVertices;
   private LinkedList<Integer> adjacencyList[];
 
-  Graph1(int numberOfVertices) {
+  GraphForDFS(int numberOfVertices) {
     this.numberOfVertices = numberOfVertices;
     adjacencyList = new LinkedList[numberOfVertices];
     for (int i = 0; i < numberOfVertices; i++) {
@@ -39,15 +39,15 @@ public class Graph1 {
   }
 
   public static void main(String[] args) {
-    Graph1 graph1 = new Graph1(4);
-    graph1.addEdge(0, 1);
-    graph1.addEdge(0, 2);
-    graph1.addEdge(1, 2);
-    graph1.addEdge(2, 0);
-    graph1.addEdge(2, 3);
-    graph1.addEdge(3, 3);
+    GraphForDFS graphForDFS = new GraphForDFS(4);
+    graphForDFS.addEdge(0, 1);
+    graphForDFS.addEdge(0, 2);
+    graphForDFS.addEdge(1, 2);
+    graphForDFS.addEdge(2, 0);
+    graphForDFS.addEdge(2, 3);
+    graphForDFS.addEdge(3, 3);
     System.out.println("DFS Traversal from vertex 2\n");
-    graph1.dfsTraversal(2);
+    graphForDFS.dfsTraversal(2);
   }
 
 }
