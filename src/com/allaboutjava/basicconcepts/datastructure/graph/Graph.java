@@ -46,17 +46,49 @@ public class Graph {
     }
   }
 
+  boolean isLoopPresent(int vertex) {
+
+    boolean visited[] = new boolean[numberOfVertices];
+    Queue<Integer> queue = new LinkedList<>();
+
+    visited[vertex] = true;
+    queue.add(vertex);
+
+    while (!queue.isEmpty()) {
+      int temp1 = queue.poll();
+      //System.out.println(temp1);
+      Iterator<Integer> itr = adjacentList[temp1].iterator();
+      while (itr.hasNext()) {
+        int temp = itr.next();
+        if (!visited[temp]) {
+          visited[temp] = true;
+          queue.add(temp);
+        }
+        if (visited[temp] && adjacentList[temp].contains(temp)) {
+          System.out.println("Graph contains a loop at vertex : " + temp);
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   public static void main(String[] args) {
     Graph graph = new Graph(4);
     graph.addEdge(0, 1);
+    graph.addEdge(1, 1);
     graph.addEdge(0, 2);
     graph.addEdge(1, 2);
     graph.addEdge(2, 0);
     graph.addEdge(2, 3);
-    graph.addEdge(3, 3);
+    graph.addEdge(3, 1);
+    graph.addEdge(3, 0);
+
+    // graph.addEdge(3, 3);
 
     System.out.println("BFS traversal from vertex 2\n");
     graph.bfsTraversal(2);
+    System.out.println("Does given graph has a loop? : " + graph.isLoopPresent(2));
   }
 
 }
