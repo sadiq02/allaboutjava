@@ -55,7 +55,7 @@ public class Graph {
     graph.addEdge(2, 3);
     graph.addEdge(3, 3);
 
-    System.out.println("BFS traversal\n");
+    System.out.println("BFS traversal from vertex 2\n");
     graph.bfsTraversal(2);
   }
 
