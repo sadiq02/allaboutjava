@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Graph {
+public class GraphForBFS {
 
   private int numberOfVertices; //number of vertices in the graph
   private LinkedList<Integer> adjacentList[]; //adjacent list array to contains edges for each vertex
 
-  Graph(int numberOfVertices) {
+  GraphForBFS(int numberOfVertices) {
     this.numberOfVertices = numberOfVertices;
     adjacentList = new LinkedList[numberOfVertices]; //creating same number of adjacent list as that of number of vertices
     for (int i = 0; i < numberOfVertices;
@@ -65,7 +65,7 @@ public class Graph {
           queue.add(temp);
         }
         if (visited[temp] && adjacentList[temp].contains(temp)) {
-          System.out.println("Graph contains a loop at vertex : " + temp);
+          System.out.println("GraphForBFS contains a loop at vertex : " + temp);
           return true;
         }
       }
@@ -74,21 +74,21 @@ public class Graph {
   }
 
   public static void main(String[] args) {
-    Graph graph = new Graph(4);
-    graph.addEdge(0, 1);
-    graph.addEdge(1, 1);
-    graph.addEdge(0, 2);
-    graph.addEdge(1, 2);
-    graph.addEdge(2, 0);
-    graph.addEdge(2, 3);
-    graph.addEdge(3, 1);
-    graph.addEdge(3, 0);
+    GraphForBFS graphForBFS = new GraphForBFS(4);
+    graphForBFS.addEdge(0, 1);
+    graphForBFS.addEdge(1, 1);
+    graphForBFS.addEdge(0, 2);
+    graphForBFS.addEdge(1, 2);
+    graphForBFS.addEdge(2, 0);
+    graphForBFS.addEdge(2, 3);
+    graphForBFS.addEdge(3, 1);
+    graphForBFS.addEdge(3, 0);
 
-    // graph.addEdge(3, 3);
+    // graphForBFS.addEdge(3, 3);
 
     System.out.println("BFS traversal from vertex 2\n");
-    graph.bfsTraversal(2);
-    System.out.println("Does given graph has a loop? : " + graph.isLoopPresent(2));
+    graphForBFS.bfsTraversal(2);
+    System.out.println("Does given graphForBFS has a loop? : " + graphForBFS.isLoopPresent(2));
   }
 
 }
