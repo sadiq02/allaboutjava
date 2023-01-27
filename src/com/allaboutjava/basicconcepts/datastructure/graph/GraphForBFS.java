@@ -46,6 +46,7 @@ public class GraphForBFS {
     }
   }
 
+  // irrespective of the type of the graph i.e. whether directed or undirected, this logic works.
   boolean isLoopPresent(int vertex) {
 
     boolean visited[] = new boolean[numberOfVertices];
