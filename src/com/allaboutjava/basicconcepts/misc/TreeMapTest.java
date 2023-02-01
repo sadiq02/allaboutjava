@@ -1,7 +1,6 @@
 package com.allaboutjava.basicconcepts.misc;
 
 import java.util.Comparator;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class TreeMapTest {
@@ -73,11 +72,18 @@ public class TreeMapTest {
 
     Comparator<Person> overallComparator = ageComparator.thenComparing(nameComparator);
 
-    Map<Person, Integer> set = new TreeMap(overallComparator);
-    set.put(person1, 1);
-    set.put(person2, 2);
-    set.put(person3, 3);
-    System.out.println(set);
+    TreeMap<Person, Integer> map = new TreeMap(overallComparator);
+    map.put(person1, 1);
+    map.put(person2, 2);
+    map.put(person3, 3);
+    System.out.println(map);
+
+    System.out.println("First element - " + map.firstEntry());
+    System.out.println("Last element - " + map.lastEntry());
+    System.out.println("First key - " + map.firstKey());
+    System.out.println("Last key - " + map.lastKey());
+    System.out.println("HeadMap - "+map.headMap(person3, false)); //lower than person3
+    System.out.println("TailMap - "+map.tailMap(person1, false)); //higher than person1
   }
 
 }
