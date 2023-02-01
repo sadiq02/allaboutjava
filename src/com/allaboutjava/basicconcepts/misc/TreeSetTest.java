@@ -1,7 +1,6 @@
 package com.allaboutjava.basicconcepts.misc;
 
 import java.util.Comparator;
-import java.util.Set;
 import java.util.TreeSet;
 
 public class TreeSetTest {
@@ -73,11 +72,16 @@ public class TreeSetTest {
 
     Comparator<Person> overallComparator = ageComparator.thenComparing(nameComparator);
 
-    Set<Person> set = new TreeSet<>(overallComparator);
+    TreeSet<Person> set = new TreeSet<>(overallComparator);
     set.add(person1);
     set.add(person2);
     set.add(person3);
     System.out.println(set);
+
+    System.out.println("Top most element - " + set.first());
+    System.out.println("Last element - " + set.last());
+    System.out.println("Headset - " + set.headSet(person3, false)); //prints elements lower than person3
+    System.out.println("Tailset - " + set.tailSet(person1, false)); //prints elements greater than person3
   }
 
 }
