@@ -22,6 +22,9 @@ public class LongestSubstringWithUniqueCharacters {
       }
 
     }
+    // if the last comparision was the longest one, the flow will not go to 'if' condition which
+    // means the 'resultLength' will not be added to the 'result' array list. Hence we add it
+    // explicitly after loop processing is over after checking that its > 0
     if (resultLength > 0) {
       result.add(resultLength);
     }
