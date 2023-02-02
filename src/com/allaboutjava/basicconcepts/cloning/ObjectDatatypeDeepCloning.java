@@ -1,5 +1,7 @@
 package com.allaboutjava.basicconcepts.cloning;
 
+import java.util.Objects;
+
 public class ObjectDatatypeDeepCloning {
 
   static class Address implements Cloneable {
@@ -46,6 +48,25 @@ public class ObjectDatatypeDeepCloning {
 
     public void setCountry(String country) {
       this.country = country;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      Address address = (Address) o;
+      return laneNumber == address.laneNumber && Objects.equals(area, address.area)
+          && Objects.equals(state, address.state) && Objects.equals(country,
+          address.country);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(laneNumber, area, state, country);
     }
 
     @Override
@@ -99,6 +120,23 @@ public class ObjectDatatypeDeepCloning {
 
     public void setAddress(Address address) {
       this.address = address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      Tourist tourist = (Tourist) o;
+      return age == tourist.age && name.equals(tourist.name) && address.equals(tourist.address);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(age, name, address);
     }
 
     @Override
