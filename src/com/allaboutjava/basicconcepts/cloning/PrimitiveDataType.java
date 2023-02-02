@@ -1,6 +1,6 @@
 package com.allaboutjava.basicconcepts.cloning;
 
-public class Primitive {
+public class PrimitiveDataType {
 
   static class Person implements Cloneable {
 
