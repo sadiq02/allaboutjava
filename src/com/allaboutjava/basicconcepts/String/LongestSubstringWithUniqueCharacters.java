@@ -6,7 +6,7 @@ import java.util.List;
 public class LongestSubstringWithUniqueCharacters {
 
   public static void main(String[] args) {
-    String input = "asdasdasdjklpou";
+    String input = "aszxcvbnmdasdasdjklpou";
     boolean visited[] = new boolean[200];
     int resultLength = 0;
     List<Integer> result = new ArrayList<>();
