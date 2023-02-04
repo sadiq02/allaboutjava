@@ -1,9 +1,9 @@
 package com.allaboutjava.basicconcepts.concurrency;
 
-public class MultiThreadDemo {
+public class OddEvenPrinting {
 
   public static void main(String[] args) throws InterruptedException {
-    Runnable t1 = new Runnable() {
+    Runnable printOddNumbers = new Runnable() {
       @Override
       public void run() {
         for (int i = 0; i < 20; i++) {
@@ -19,7 +19,7 @@ public class MultiThreadDemo {
       }
     };
 
-    Runnable t2 = new Runnable() {
+    Runnable printEvenNumbers = new Runnable() {
       @Override
       public void run() {
         for (int i = 0; i < 20; i++) {
@@ -35,8 +35,10 @@ public class MultiThreadDemo {
       }
     };
 
-    Thread thread1 = new Thread(t1);
-    Thread thread2 = new Thread(t2);
+    Thread thread1 = new Thread(printOddNumbers);
+    Thread thread2 = new Thread(printEvenNumbers);
+    System.out.println("Thread-1 will print odd numbers");
+    System.out.println("Thread-2 will print even numbers");
     thread1.setName("Thread-1");
     thread2.setName("Thread-2");
 
