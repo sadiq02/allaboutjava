@@ -17,7 +17,7 @@ public class InterThreadCommunication {
               count++;
               lock.notify();
               try {
-                Thread.sleep(2000);
+                Thread.sleep(500);
               } catch (InterruptedException e) {
                 e.printStackTrace();
               }
@@ -46,7 +46,7 @@ public class InterThreadCommunication {
               count++;
               lock.notify();
               try {
-                Thread.sleep(2000);
+                Thread.sleep(500);
               } catch (InterruptedException e) {
                 e.printStackTrace();
               }
@@ -65,8 +65,8 @@ public class InterThreadCommunication {
       }
     };
 
-    Thread t1 = new Thread(printEvenNumbers, "thread1");
-    Thread t2 = new Thread(printOddNumbers, "thread2");
+    Thread t1 = new Thread(printEvenNumbers, "EvenNumbersPrintingThread");
+    Thread t2 = new Thread(printOddNumbers, "OddNumbersPrintingThread");
 
     t1.start();
     t2.start();
