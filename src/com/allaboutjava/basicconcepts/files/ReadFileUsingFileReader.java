@@ -3,7 +3,7 @@ package com.allaboutjava.basicconcepts.files;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ReadFile {
+public class ReadFileUsingFileReader {
 
   public static void main(String[] args) throws IOException {
     FileReader fileReader = new FileReader(
