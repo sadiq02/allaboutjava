@@ -1,5 +1,7 @@
 package com.allaboutjava.basicconcepts.recurrsion;
 
+import java.util.Scanner;
+
 public class FibonacciSeries {
 
   public int fibNumber(int n) {
@@ -14,8 +16,9 @@ public class FibonacciSeries {
 
   public static void main(String[] args) {
     FibonacciSeries fibonacciSeries = new FibonacciSeries();
-    for (int i = 0; i < 5; i++) {
-      System.out.println("Fibonacci number for given value is " + fibonacciSeries.fibNumber(i));
-    }
+    System.out.println("Enter a number");
+    Scanner scanner = new Scanner(System.in);
+    int input = scanner.nextInt();
+    System.out.println("Fibonacci value for given input is " + fibonacciSeries.fibNumber(input));
   }
 }
