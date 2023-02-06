@@ -13,6 +13,9 @@ public class SerializationMain {
     String name;
     String country;
 
+    public Person() {
+    }
+
     public Person(int age, String name, String country) {
       this.age = age;
       this.name = name;
@@ -53,12 +56,44 @@ public class SerializationMain {
     }
   }
 
+  static class Child extends Person implements Serializable {
+
+    transient String gender;
+
+    public Child(String gender) {
+      this.gender = gender;
+    }
+
+    public String getGender() {
+      return gender;
+    }
+
+    public void setGender(String gender) {
+      this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+      return "Child{" +
+          "gender=" + gender +
+          '}';
+    }
+  }
+
   public static void main(String[] args) throws IOException {
     Person person = new Person(33, "Sadiq", "India");
     ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(
         "/Users/sadiqhus/mygit/personal/allaboutjava/sample_files/serializedObject.ser"));
     objectOutputStream.writeObject(person);
     objectOutputStream.close();
+
+
+
+    Child child = new Child("male");
+    ObjectOutputStream objectOutputStream1 = new ObjectOutputStream(new FileOutputStream(
+        "/Users/sadiqhus/mygit/personal/allaboutjava/sample_files/serializedChildObject.ser"));
+    objectOutputStream1.writeObject(child);
+    objectOutputStream1.close();
   }
 
 }
