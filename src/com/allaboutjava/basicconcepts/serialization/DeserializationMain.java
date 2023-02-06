@@ -3,6 +3,7 @@ package com.allaboutjava.basicconcepts.serialization;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 
 import com.allaboutjava.basicconcepts.serialization.SerializationMain.Child;
 import com.allaboutjava.basicconcepts.serialization.SerializationMain.Person;
