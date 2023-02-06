@@ -9,6 +9,7 @@ public class SerializationMain {
 
   static class Person implements Serializable {
 
+    private static long serialVersionUID = 101L;
     int age;
     String name;
     String country;
@@ -86,8 +87,6 @@ public class SerializationMain {
         "/Users/sadiqhus/mygit/personal/allaboutjava/sample_files/serializedObject.ser"));
     objectOutputStream.writeObject(person);
     objectOutputStream.close();
-
-
 
     Child child = new Child("male");
     ObjectOutputStream objectOutputStream1 = new ObjectOutputStream(new FileOutputStream(
