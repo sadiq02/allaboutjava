@@ -11,6 +11,9 @@ public class BstLevelOrderTraversalMain {
     bst.insertNode(7);
     bst.insertNode(13);
     bst.insertNode(17);
+    System.out.println("Level order traveral using iterative approach");
     bst.levelOrderTraversal(bst.getRoot());
+    System.out.println("Level order traversal using recursion");
+    bst.levelOrderTraversalUsingRecurrsion();
   }
 }
