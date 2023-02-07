@@ -2,6 +2,7 @@ package com.allaboutjava.basicconcepts.datastructure.practice;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BstOperations {
 
@@ -61,6 +62,28 @@ public class BstOperations {
 
   void inorderDisplay() {
     inorder(root);
+  }
+
+  public void inorderDisplayUsingStack() {
+    inorderUsingStack(root);
+  }
+
+  private void inorderUsingStack(BstNode root) {
+    if (root == null) {
+      return;
+    }
+    Stack<BstNode> s = new Stack<>();
+    BstNode current = root;
+    while (current != null || s.size() > 0) {
+      while (current != null) {
+        s.push(current);
+        current = current.left;
+      }
+
+      current = s.pop();
+      System.out.println(current.data);
+      current = current.right;
+    }
   }
 
   private void inorder(BstNode root) {
@@ -137,9 +160,11 @@ public class BstOperations {
     bst.addNode(7);
     bst.addNode(13);
     bst.addNode(17);
-   // bst.removeNode(10);
+    // bst.removeNode(10);
     System.out.println("Inorder\n");
     bst.inorderDisplay();
+    System.out.println("Inorder using stack\n");
+    bst.inorderDisplayUsingStack();
     System.out.println("Preorder\n");
     bst.preorderDisplay();
     System.out.println("PostOrder\n");
