@@ -150,6 +150,28 @@ public class BstOperations {
     }
   }
 
+  public BstNode getRoot() {
+    return root;
+  }
+
+  void levelOrderUsingRecurrsion(BstNode root) {
+    int height = getHeight(root);
+    for (int i = 1; i <= height; i++) {
+      printLevelOrderTraversal(root, i);
+    }
+  }
+
+  private void printLevelOrderTraversal(BstNode root, int level) {
+    if (root == null) {
+      return;
+    }
+    if (level == 1) {
+      System.out.println(root.data);
+    } else if (level > 1) {
+      printLevelOrderTraversal(root.left, level - 1);
+      printLevelOrderTraversal(root.right, level - 1);
+    }
+  }
 
   public static void main(String[] args) {
     BstOperations bst = new BstOperations();
@@ -169,8 +191,10 @@ public class BstOperations {
     bst.preorderDisplay();
     System.out.println("PostOrder\n");
     bst.postorderDisplay();
-    System.out.println("LevelOrder\n");
+    System.out.println("LevelOrder using queue\n");
     bst.levelOrderDisplay();
+    System.out.println("LevelOrder traversal using recurssion\n");
+    bst.levelOrderUsingRecurrsion(bst.getRoot());
     System.out.println("Height - " + bst.getTreeHeight());
 
   }

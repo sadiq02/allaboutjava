@@ -81,6 +81,35 @@ public class BstOperations {
     }
   }
 
+  public void levelOrderTraversalUsingRecurrsion() {
+    int height = getHeight(root);
+    for (int i = 1; i <= height; i++) {
+      printLevelOrder(root, i);
+    }
+  }
+
+  private void printLevelOrder(BstNode root, int level) {
+    if (root == null) {
+      return;
+    }
+    if (level == 1) {
+      System.out.println(root.value);
+    } else if (level > 1) {
+      printLevelOrder(root.getLeft(), level - 1);
+      printLevelOrder(root.getRight(), level - 1);
+    }
+  }
+
+  public int getHeight(BstNode root) {
+    if (root == null) {
+      return 0;
+    }
+    int leftSubtreeHeight = getHeight(root.getLeft());
+    int rightSubtreeHeight = getHeight(root.getRight());
+
+    return Math.max(leftSubtreeHeight, rightSubtreeHeight) + 1;
+  }
+
   public void removeNode(int value) {
     root = removeNode(root, value);
   }
