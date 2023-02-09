@@ -2,7 +2,7 @@ package com.allaboutjava.basicconcepts.designpatterns;
 
 public class SingletonMain {
 
-  SingletonMain(){
+  SingletonMain() {
 
   }
 
@@ -18,7 +18,16 @@ public class SingletonMain {
     SingletonMain singletonMain1 = new SingletonMain();
     SingletonMain singletonMain2 = new SingletonMain();
 
-    System.out.println("Non-singleton obj1 hashcode - "+singletonMain1.hashCode());
-    System.out.println("Non-singleton obj2 hashcode - "+singletonMain2.hashCode());
+    System.out.println("Non-singleton obj1 hashcode - " + singletonMain1.hashCode());
+    System.out.println("Non-singleton obj2 hashcode - " + singletonMain2.hashCode());
+
+    SingletonPattern obj4 = SingletonPattern.getInstance(10, 20);
+    SingletonPattern obj5 = SingletonPattern.getInstance(30,
+        40); //this will not work because the singleton obj with parameters is already created in above step and the same will be returned when another attempt to create new obj is performed.
+
+    System.out.println("obj4 hashcode - " + obj4.hashCode());
+    System.out.println(obj4.getA());
+    System.out.println("obj5 hashcode - " + obj5.hashCode());
+    System.out.println(obj5.getA()); //this will return same out as obj4.getA()
   }
 }
