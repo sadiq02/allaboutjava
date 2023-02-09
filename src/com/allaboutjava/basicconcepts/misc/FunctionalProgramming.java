@@ -39,5 +39,13 @@ public class FunctionalProgramming {
     inputMap.put("Amara", 1);
 
     System.out.println("Map keys - " + inputMap.entrySet().stream().collect(Collectors.toList()));
+
+    String s = "1,2,3,4,5";
+    String s1[] = s.split(",");
+    int input1[] = new int[s1.length];
+    for (int i = 0; i < s1.length; i++) {
+      input1[i] = Integer.parseInt(s1[i]);
+    }
+    IntStream.of(input1).boxed().forEach(System.out::println);
   }
 }
