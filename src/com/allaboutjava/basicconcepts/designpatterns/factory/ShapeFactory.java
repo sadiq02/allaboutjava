@@ -1,15 +1,15 @@
 package com.allaboutjava.basicconcepts.designpatterns.factory;
 
-public class ShapeFactory implements Shape {
+public class ShapeFactory {
 
-  @Override
-  public Shape getShape(String shapeString) {
-    if (shapeString.equalsIgnoreCase("square")) {
-      return new SquareShape(shapeString);
+  public static Shape getShape(String shape) {
+    if (shape.equalsIgnoreCase("rectangle")) {
+      return new RectangleShape();
     }
-    if (shapeString.equals("rectangle")) {
-      return new RectangleShape(shapeString);
+    if(shape.equalsIgnoreCase("square")){
+      return new SquareShape();
     }
     return null;
   }
+
 }
