@@ -3,8 +3,11 @@ package com.allaboutjava.basicconcepts.designpatterns.factory;
 public class FactoryPatternMain {
 
   public static void main(String[] args) {
-    Shape shape = new ShapeFactory().getShape("square");
-    Shape shape1 = new ShapeFactory().getShape("rectangle");
+    Shape shape1 = ShapeFactory.getShape("square");
+    Shape shape2 = ShapeFactory.getShape("rectangle");
+
+    shape1.draw();
+    shape2.draw();
   }
 
 

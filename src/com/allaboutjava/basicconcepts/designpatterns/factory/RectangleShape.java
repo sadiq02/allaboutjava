@@ -2,12 +2,11 @@ package com.allaboutjava.basicconcepts.designpatterns.factory;
 
 public class RectangleShape implements Shape {
 
-  public RectangleShape(String shapeString) {
-    System.out.println(shapeString);
+  public RectangleShape() {
   }
 
   @Override
-  public Shape getShape(String shapeString) {
-    return new RectangleShape("rectangle");
+  public void draw() {
+    System.out.println("Rectangle");
   }
 }
