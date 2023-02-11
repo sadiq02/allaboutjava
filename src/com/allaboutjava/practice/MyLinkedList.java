@@ -25,16 +25,51 @@ public class MyLinkedList {
     return size;
   }
 
-  void add(int data) {
+  void addInTheBeginning(int data) {
     LinkListNode newNode = new LinkListNode(data);
     if (isEmpty()) {
       head = newNode;
     } else {
-      newNode.next = head;
       head.previous = newNode;
+      newNode.next = head;
       head = newNode;
     }
     size++;
+  }
+
+  void remove(int data) {
+    LinkListNode temp = head;
+    if (isEmpty()) {
+      System.out.println("Nothing to remove");
+      return;
+    }
+    for (int i = 0; i < size; i++) {
+      if (i == 0 && temp.data == data) {
+        LinkListNode temp1 = head.next;
+        temp1.previous = null;
+        head = temp1;
+        size--;
+        break;
+      }
+      if (i == size - 1 && temp.data == data) {
+        LinkListNode temp2 = temp.previous;
+        temp.previous = null;
+        size--;
+        break;
+      }
+      if (temp.data == data) {
+        LinkListNode prevPointer = temp.previous;
+        LinkListNode nextPointer = temp.next;
+        prevPointer.next = temp.next;
+        nextPointer.previous = temp.next;
+        temp.next = null;
+        temp.previous = null;
+        size--;
+        break;
+      } else {
+        temp = temp.next;
+      }
+    }
   }
 
   public void display() {
@@ -59,17 +94,18 @@ public class MyLinkedList {
 
   public static void main(String[] args) {
     MyLinkedList myLinkedList = new MyLinkedList();
-    myLinkedList.add(10);
-    myLinkedList.add(20);
-    myLinkedList.add(30);
-    myLinkedList.add(40);
+    myLinkedList.addInTheBeginning(10);
+    myLinkedList.addInTheBeginning(20);
+    myLinkedList.addInTheBeginning(30);
+    myLinkedList.addInTheBeginning(40);
+    System.out.println("Current head - " + myLinkedList.head.data);
     System.out.println("Original content");
+    myLinkedList.display();
+    myLinkedList.remove(20);
+    System.out.println("After removal of an element");
     myLinkedList.display();
     System.out.println("After reversing");
     myLinkedList.reverse();
     myLinkedList.display();
-    /*myLinkedList.remove(20);
-    System.out.println("After removal of an element");
-    myLinkedList.display();*/
   }
 }
