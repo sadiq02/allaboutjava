@@ -126,6 +126,6 @@ class Bst {
     root2.left = new BstNode(8);
     root2.right = new BstNode(12);
 
-
+    System.out.println("Are given bst's identical ? - " + bst1.isIdentitcal(root, root2));
   }
 }
