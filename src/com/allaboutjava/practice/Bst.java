@@ -90,6 +90,18 @@ class Bst {
     inorderTraversal(root.right);
   }
 
+  public boolean isIdentitcal(BstNode node1, BstNode node2) {
+    if (node1 == null && node2 == null) {
+      return true;
+    }
+    if (node1.data == node2.data && isIdentitcal(node1.left, node2.left) && isIdentitcal(
+        node1.right, node2.right)) {
+      return true;
+    }
+    return false;
+  }
+
+
   public static void main(String[] args) {
     Bst bst = new Bst();
     System.out.println("Is tree empty ? " + bst.isEmpty());
@@ -103,5 +115,17 @@ class Bst {
     bst.removeNode(15);
     System.out.println("Inorder traversal");
     bst.inorder();
+
+    Bst bst1 = new Bst();
+    BstNode root = new BstNode(10);
+    root.left = new BstNode(8);
+    root.right = new BstNode(12);
+
+    Bst bst2 = new Bst();
+    BstNode root2 = new BstNode(10);
+    root2.left = new BstNode(8);
+    root2.right = new BstNode(12);
+
+
   }
 }
