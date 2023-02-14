@@ -1,0 +1,3 @@
+Hi there!
+This is a sample file created via java program using FileWriterHi there!
+This is a sample file created via java program using FileWriter
