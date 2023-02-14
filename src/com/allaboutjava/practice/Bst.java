@@ -101,6 +101,18 @@ class Bst {
     return false;
   }
 
+  public void getMirrorImage(BstNode node) {
+    if (node == null) {
+      return;
+    }
+    getMirrorImage(node.left);
+    getMirrorImage(node.right);
+
+    BstNode temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+  }
+
 
   public static void main(String[] args) {
     Bst bst = new Bst();
@@ -115,8 +127,11 @@ class Bst {
     bst.removeNode(15);
     System.out.println("Inorder traversal");
     bst.inorder();
+    bst.getMirrorImage(bst.root);
+    System.out.println("Post mirroring");
+    bst.inorder();
 
-    Bst bst1 = new Bst();
+    /*Bst bst1 = new Bst();
     BstNode root = new BstNode(10);
     root.left = new BstNode(8);
     root.right = new BstNode(12);
@@ -127,5 +142,16 @@ class Bst {
     root2.right = new BstNode(12);
 
     System.out.println("Are given bst's identical ? - " + bst1.isIdentitcal(root, root2));
+
+    // Mirror image
+    Bst bst3 = new Bst();
+    BstNode root3 = new BstNode(10);
+    root3.left = new BstNode(8);
+    root3.right = new BstNode(12);
+    System.out.println("Original tree");
+    bst3.inorderTraversal(root3);
+    bst3.getMirrorImage(root3);
+    System.out.println("Mirror");
+    bst3.inorderTraversal(root3);*/
   }
 }
