@@ -5,8 +5,12 @@ public interface Interface1 {
 
   public void display();
 
-  public default void display1() {
-    System.out.println("Inside display1()");
+  public default void defaultDisplay() {
+    System.out.println("Inside defaultDisplay()");
+  }
+
+  public static void staticDisplay() {
+    System.out.println("Inside staticDisplay()");
   }
 }
 

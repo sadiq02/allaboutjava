@@ -11,6 +11,7 @@ class FunctionalInterfaceClass {
     interface1.display();
     System.out.println(interface1.getClass()
         .getName()); //output - com.allaboutjava.basicconcepts.misc.FunctionalInterfaceClass$$Lambda$14/0x0000000800066840
+    interface1.defaultDisplay();
     FunctionalInterfaceClass functionalInterfaceClass = new FunctionalInterfaceClass();
     functionalInterfaceClass.show();
     System.out.println(functionalInterfaceClass.getClass()
