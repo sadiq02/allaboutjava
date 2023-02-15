@@ -42,6 +42,24 @@ public class Graph {
     }
   }
 
+  void dfs(int source) {
+    boolean visited[] = new boolean[300];
+    dfsUtil(source, visited);
+  }
+
+  private void dfsUtil(int source, boolean[] visited) {
+    Queue<Integer> queue = new LinkedList<>();
+    visited[source] = true;
+    System.out.println(source);
+    Iterator<Integer> itr = al[source].iterator();
+    while (itr.hasNext()) {
+      int temp = itr.next();
+      if (!visited[temp]) {
+        dfsUtil(temp, visited);
+      }
+    }
+  }
+
   public static void main(String[] args) {
     Graph graph = new Graph(4);
     graph.addEdge(0, 1);
@@ -54,5 +72,7 @@ public class Graph {
     graph.addEdge(3, 0);
     System.out.println("BFS traversal from vertex 2\n");
     graph.bfs(2);
+    System.out.println("DFS traversal from vertex 2\n");
+    graph.dfs(2);
   }
 }
