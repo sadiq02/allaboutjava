@@ -12,5 +12,6 @@ public class MaxNumberInArray {
     input.add(30);
     input.add(40);
     System.out.println(input.stream().mapToInt(x->x).summaryStatistics().getMax());
+    System.out.println(input.stream().mapToInt(x->x).max());
   }
 }
