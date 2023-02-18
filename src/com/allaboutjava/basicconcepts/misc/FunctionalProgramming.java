@@ -47,5 +47,25 @@ public class FunctionalProgramming {
       input1[i] = Integer.parseInt(s1[i]);
     }
     IntStream.of(input1).boxed().forEach(System.out::println);
+
+    System.out.println(
+        inputMap.keySet().stream().filter(x -> !x.isBlank()).anyMatch(x -> x.length() == 7));
+
+    System.out.println("reduce method demo on string");
+    System.out.println(inputMap.keySet().stream().reduce("", (x, y) -> x + "_" + y));
+
+    System.out.println("Summation of numbers using reduce function");
+    System.out.println("input numbers sum result - " + input.stream().reduce(0, (d, f) -> d + f));
+
+    System.out.println("filtering even numbers and odd numbers that are not divisible by 7");
+    input.stream().filter(x -> {
+          if (x % 2 != 0) {
+            if (x % 7 == 0) {
+              return true;
+            }
+          }
+          return false;
+        }
+    ).forEach(System.out::println);
   }
 }
