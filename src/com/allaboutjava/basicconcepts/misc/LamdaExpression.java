@@ -21,6 +21,7 @@ public class LamdaExpression {
     System.out.println("Sum - " + sum.calculate(10, 20));
     diff.calculate(10, 20);
     System.out.println("Diff - " + diff.calculate(10, 20));
+
   }
 
 
