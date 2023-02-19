@@ -52,7 +52,12 @@ public class FunctionalProgramming {
         inputMap.keySet().stream().filter(x -> !x.isBlank()).anyMatch(x -> x.length() == 7));
 
     System.out.println("reduce method demo on string");
-    System.out.println(inputMap.keySet().stream().reduce("", (x, y) -> x + "_" + y));
+    System.out.println(inputMap.keySet().stream().reduce("", (x, y) -> {
+      if (x.isEmpty()) { //to avoid trailing _ before first value
+        return y;
+      }
+      return x + "_" + y;
+    }));
 
     System.out.println("Summation of numbers using reduce function");
     System.out.println("input numbers sum result - " + input.stream().reduce(0, (d, f) -> d + f));
@@ -67,5 +72,7 @@ public class FunctionalProgramming {
           return false;
         }
     ).forEach(System.out::println);
+
+    inputMap.entrySet().stream().map(x -> x.getKey().length()).forEach(System.out::println);
   }
 }
