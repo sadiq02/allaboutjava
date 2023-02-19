@@ -1,5 +1,6 @@
 package com.allaboutjava.basicconcepts.misc;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +38,10 @@ public class ImportantStreamOperations {
     String[] str = {"1", "2", "3"};
     System.out.println(
         Arrays.stream(str).map(Integer::parseInt).mapToInt(x -> x).summaryStatistics().getMax());
+
+    //Optional
+    List<Integer> input2 = new ArrayList<>();
+    System.out.println(input2.stream().mapToInt(x->x).max());
   }
 
 }
