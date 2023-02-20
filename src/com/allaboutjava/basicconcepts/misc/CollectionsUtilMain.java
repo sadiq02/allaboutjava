@@ -2,8 +2,10 @@ package com.allaboutjava.basicconcepts.misc;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -15,7 +17,7 @@ public class CollectionsUtilMain {
     List<Integer> unmodifiableList = Collections.unmodifiableList(input);
     input.forEach(System.out::println); //no issue modifying original list
 
-    unmodifiableList.add(44); // throws UnsupportedOperationException
+    // unmodifiableList.add(44); // throws UnsupportedOperationException
     unmodifiableList.forEach(System.out::println);
 
     Set<String> stringSet = new HashSet<>();
@@ -24,6 +26,13 @@ public class CollectionsUtilMain {
     stringSet.forEach(System.out::println);
 
     Set<String> unmodifiableSet = Collections.unmodifiableSet(stringSet);
-    unmodifiableSet.add("Danish"); // throws UnsupportedOperationException
+    //unmodifiableSet.add("Danish"); // throws UnsupportedOperationException
+
+    Map<String, Integer> map = new HashMap<>();
+    map.put("Sadiq", 34);
+
+    Map<String, Integer> unmodifiableMap = Collections.unmodifiableMap(map);
+    unmodifiableMap.entrySet().stream().forEach(System.out::println);
+    // unmodifiableMap.put("Sarine", 33);// throws UnsupportedOperationException
   }
 }
