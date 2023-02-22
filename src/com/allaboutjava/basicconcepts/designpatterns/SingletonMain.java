@@ -30,7 +30,9 @@ public class SingletonMain {
     System.out.println("obj5 hashcode - " + obj5.hashCode());
     System.out.println(obj5.getA()); //this will return same out as obj4.getA()
 
-    SingletonChild singletonChild = SingletonChild.getInstance();
-    System.out.println(singletonChild.hashCode());
+    SingletonChild singletonChild1 = SingletonChild.getInstance();
+    SingletonChild singletonChild2 = SingletonChild.getInstance();
+    System.out.println("singletonChild1 hashcode - " + singletonChild1.hashCode());
+    System.out.println("singletonChild2 hashcode - " + singletonChild2.hashCode());
   }
 }
