@@ -16,7 +16,7 @@ public class PrintTopViewForBinaryTree {
       map.put(horizontalDistance, new int[]{node.getValue(), height});
     } else {
       int temp[] = map.get(horizontalDistance);
-      if (temp[1] >= height) {
+      if (temp[1] <= height) {
         temp[1] = height;
         temp[0] = node.getValue();
       }
@@ -24,6 +24,24 @@ public class PrintTopViewForBinaryTree {
     }
     printBottomView(node.getLeft(), map, horizontalDistance - 1, height + 1);
     printBottomView(node.getRight(), map, horizontalDistance + 1, height + 1);
+  }
+
+  void printTopView(BstNode node, Map<Integer, int[]> map, int horizontalDistance, int height) {
+    if (node == null) {
+      return;
+    }
+    if (!map.containsKey(horizontalDistance)) {
+      map.put(horizontalDistance, new int[]{node.getValue(), height});
+    } else {
+      int temp[] = map.get(horizontalDistance);
+      if (temp[1] >= height) {
+        temp[1] = height;
+        temp[0] = node.getValue();
+      }
+      map.put(horizontalDistance, temp);
+    }
+    printTopView(node.getLeft(), map, horizontalDistance - 1, height + 1);
+    printTopView(node.getRight(), map, horizontalDistance + 1, height + 1);
   }
 
   public static void main(String[] args) {
@@ -34,7 +52,7 @@ public class PrintTopViewForBinaryTree {
     bst.insertNode(4);
     bst.insertNode(7);
 
-    BstNode _1 = new BstNode(1);
+  /*  BstNode _1 = new BstNode(1);
     BstNode _2 = new BstNode(2);
     BstNode _3 = new BstNode(3);
     BstNode _4 = new BstNode(4);
@@ -63,13 +81,22 @@ public class PrintTopViewForBinaryTree {
     System.out.println("\nBottom view\n");
     for (int[] temp : map1.values()) {
       System.out.println(temp[0]);
-    }
+    }*/
 
-    Map<Integer, int[]> map2 = new TreeMap<>();
-    printBottomViewForBinaryTree.printBottomView(bst.getRoot(), map2, 0, 0);
-    System.out.println("\nTop view\n");
-    for (int[] temp : map2.values()) {
+    Map<Integer, int[]> map1 = new TreeMap<>();
+    PrintTopViewForBinaryTree printBottomViewForBinaryTree = new PrintTopViewForBinaryTree();
+    printBottomViewForBinaryTree.printBottomView(bst.getRoot(), map1, 0, 0);
+    System.out.println("\nBottom view\n");
+    for (int[] temp : map1.values()) {
       System.out.println(temp[0]);
     }
+      PrintTopViewForBinaryTree printBottomViewForBinaryTree1 = new PrintTopViewForBinaryTree();
+      Map<Integer, int[]> map2 = new TreeMap<>();
+      printBottomViewForBinaryTree1.printTopView(bst.getRoot(), map2, 0, 0);
+      System.out.println("\nTop view\n");
+      for (int[] temp1 : map2.values()) {
+        System.out.println(temp1[0]);
+      }
+    }
   }
-}
+
