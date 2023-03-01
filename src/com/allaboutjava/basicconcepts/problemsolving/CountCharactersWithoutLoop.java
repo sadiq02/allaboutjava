@@ -19,5 +19,11 @@ public class CountCharactersWithoutLoop {
       System.out.println(temp.getKey() + " - " + temp.getValue());
     }
 
+    String str ="sadiq";
+    System.out.println(str.getClass());
+
+    String str1 = "sadiqhussain";
+    System.out.println(str1.getClass());
+
   }
 }

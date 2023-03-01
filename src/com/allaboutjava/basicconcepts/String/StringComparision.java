@@ -16,5 +16,11 @@ public class StringComparision {
     System.out.println("s2.equals(s3) ? " + (s2.equals(s3))); //true, ofcourse!
     System.out.println("s3 == s4 ? " + (s3 == s4)); //true, ofcourse!
     System.out.println("s4 == s5 ? " + (s4 == s5)); //true, since intern is used
+
+    String str1 = new String("sadiq").intern();
+    String str2 = new String("sadiq").intern();
+    System.out.println(str1 == str2);
+    System.out.println(str1.hashCode());
+    System.out.println(str2.hashCode());
   }
 }
