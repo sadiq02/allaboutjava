@@ -1,5 +1,6 @@
 package com.allaboutjava.basicconcepts.datastructure.list.custom;
 
+
 public class SingleyLinkedList {
 
   SingleLinkedListNode head;
@@ -56,6 +57,41 @@ public class SingleyLinkedList {
       newNode.next = newNextNode;
       size++;
     }
+  }
+
+  public void deleteNode(Object data) {
+    if (isEmpty()) {
+      System.out.println("nothing to delete\n");
+      return;
+    }
+    if (head.data == data) {
+      head = head.next;
+      size--;
+      System.out.println(data + " - deleted\n");
+      return;
+    }
+    if (size == 1) {
+      System.out.println(data + " - deleted\n");
+      head = null;
+      size = 0;
+      return;
+    }
+    SingleLinkedListNode temp = head;
+    SingleLinkedListNode previos = temp;
+    SingleLinkedListNode next = temp;
+    while (temp != null) {
+      if (temp.data == data) {
+        next = temp.next;
+        temp = null;
+        break;
+      } else {
+        previos = temp;
+        temp = temp.next;
+      }
+    }
+    previos.next = next;
+    size--;
+    System.out.println(data + " - deleted\n");
   }
 
   public int getSize() {
