@@ -9,6 +9,7 @@ public class SingleyLinkedListOperation {
     list.addNode(2);
     list.addNode(3);
     list.addNodeAtIndex(4,3);
+    list.deleteNode(3);
     list.display();
     System.out.println("Current size - " + list.getSize());
   }
