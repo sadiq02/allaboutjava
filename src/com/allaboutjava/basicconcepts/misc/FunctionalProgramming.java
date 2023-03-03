@@ -1,5 +1,6 @@
 package com.allaboutjava.basicconcepts.misc;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,5 +75,19 @@ public class FunctionalProgramming {
     ).forEach(System.out::println);
 
     inputMap.entrySet().stream().map(x -> x.getKey().length()).forEach(System.out::println);
+
+    System.out.println("flatMap demo code");
+    List<Integer> numberList1 = Arrays.asList(1, 2, 3, 4, 5);
+    List<Integer> numberList2 = Arrays.asList(6, 7, 8, 9, 10);
+    List<Integer> numberList3 = Arrays.asList(11, 12, 13, 14, 15);
+
+    List<List<Integer>> bigList = Arrays.asList(numberList1, numberList2, numberList3);
+    System.out.println("if map() was used");
+    List<List<Integer>> mapList = bigList.stream().map(x -> x).collect(Collectors.toList());
+    System.out.println(mapList);
+    System.out.println("When flatMap is used");
+    List<Integer> flatMapList = bigList.stream().flatMap(x -> x.stream())
+        .collect(Collectors.toList());
+    System.out.println(flatMapList);
   }
 }
