@@ -15,5 +15,8 @@ public class RegularExp {
 
     String str = "This is sample\nHello";
     System.out.println(str.split("\\n")[1]);
+
+    System.out.println(Pattern.matches("\\*.111.*",
+        "*.111.4545.343.324")); // will return true because '*' here is being considered as a character itself and not a wild card character.
   }
 }
