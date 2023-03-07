@@ -44,7 +44,6 @@ public class LRUCacheUsingLinkedHashSet {
         lruCache.add(key);
       } else {
         System.out.println("Referred item " + key + " does not exist in the cache so adding it!");
-        lruCache.remove(key);
         lruCache.add(key);
       }
     } else {
@@ -69,10 +68,15 @@ public class LRUCacheUsingLinkedHashSet {
     lruCache.refer(2);
     System.out.println("Current occupancy of the cache - " + lruCache.getCurrentCacheFilledSize());
     lruCache.refer(3);
+    lruCache.displayCacheContent();
     lruCache.refer(1);
+    lruCache.displayCacheContent();
     lruCache.refer(4);
+    lruCache.displayCacheContent();
     lruCache.refer(5);
+    lruCache.displayCacheContent();
     lruCache.refer(6);
+    lruCache.displayCacheContent();
     System.out.println("Is LRUCache Full? - " + lruCache.isCacheFull());
     lruCache.displayCacheContent();
   }

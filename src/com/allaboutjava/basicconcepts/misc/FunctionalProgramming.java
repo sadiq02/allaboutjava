@@ -61,7 +61,8 @@ public class FunctionalProgramming {
     }));
 
     System.out.println("Summation of numbers using reduce function");
-    System.out.println("input numbers sum result - " + input.stream().reduce(0, (d, f) -> d + f));
+    System.out.println("input numbers sum result - " + input.stream().reduce(0, Integer::sum));
+    System.out.println(input.stream().mapToInt(x->x).sum());
 
     System.out.println("filtering even numbers and odd numbers that are not divisible by 7");
     input.stream().filter(x -> {

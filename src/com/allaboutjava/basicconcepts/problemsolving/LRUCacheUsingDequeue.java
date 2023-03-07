@@ -56,6 +56,7 @@ public class LRUCacheUsingDequeue {
     cache.refer(1);
     cache.refer(2);
     cache.refer(3);
+    cache.displayCacheContent();
     cache.refer(4);
     cache.displayCacheContent();
     cache.refer(3);
