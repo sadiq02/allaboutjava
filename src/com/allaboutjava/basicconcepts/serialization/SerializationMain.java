@@ -59,6 +59,7 @@ public class SerializationMain {
 
   static class Child extends Person implements Serializable {
 
+
     transient String gender;
 
     public Child(String gender) {
