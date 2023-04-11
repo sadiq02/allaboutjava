@@ -160,12 +160,13 @@ public class ObjectDatatypeDeepCloning {
 
   public static void main(String[] args) throws CloneNotSupportedException {
     Tourist tourist = new Tourist(33, "Sadiq", new Address(1, "Vijinpura", "Karnataka", "India"));
+      System.out.println("Original tourist object before cloning - " + tourist.toString());
     Tourist clonedTourise = (Tourist) tourist.clone();
     clonedTourise.setAge(34);
     clonedTourise.setName("Sarine");
     clonedTourise.getAddress().setArea("Ernakulam");
     clonedTourise.getAddress().setState("Kerala");
-    System.out.println("Original tourist object - " + tourist.toString());
+    System.out.println("Original tourist object after cloning - " + tourist.toString());
     System.out.println("Cloned tourist object - " + clonedTourise.toString());
   }
 
